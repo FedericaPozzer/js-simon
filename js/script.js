@@ -18,7 +18,7 @@
 
 // quando è oggi? quando sarà domani?
 let oggi = new Date();
-let domani = new Date("2023-02-08 09:30");
+let domani = new Date("2023-02-06 09:30");
 console.log("in questo momento siamo a " + oggi.getTime() + " millisecondi");
 console.log("domani alle 9:30 saremo a " + domani.getTime() + " millisecondi");
 
@@ -30,8 +30,8 @@ console.log("il tempo da adesso fino alle 9:30 di domani è di " + tempo_che_ci_
 
 // ok, in millisecondi :D e in TEMPO UMANO NORMALE?
 /**
- * 
  * funzione per trasformare i millisecondi in secondi
+ * 
  * @param ms millisecondi da trasfomare
  * 
  */
@@ -49,8 +49,8 @@ console.log("ti rimangono " + my_time_in_seconds + " secondi!");
 
 // ..and then? altre funzioni?
 /**
- * 
  * funzione per trasformare i secondi in minuti
+ * 
  * @param sec secondi da trasfomare
  * 
  */
@@ -60,14 +60,10 @@ function transform_seconds(sec) {
     return parseInt(min);
 }
 
-// trasformo secondi in minuti --- funziona ma non credo sia l'idea giusta :D
-// let my_time_in_minutes = transform_seconds(my_time_in_seconds);
-// console.log("ti rimangono " + my_time_in_minutes + " minuti!");
 
 
-
-// ok, sapendo che in un giorno ci sono 86.400 secondi.. (3600 in un'ora)
-    // creo array per le ore
+// ok, sapendo che in un giorno ci sono 86.400 secondi.. 
+    // creo array per i giorni
     let array_giorni = [];
     
 for (let i = 0; i < 86400; i++) {
@@ -79,7 +75,7 @@ for (let i = 0; i < 86400; i++) {
     }
 }
 // console.log(array_giorni);
-// console.log(my_time_in_seconds);
+console.log(my_time_in_seconds);
 
 /**
  * funzione per sommare i numeri all'interno di un array
@@ -93,13 +89,60 @@ function sum_array (array) {
     for (let i = 0; i < array.length; i++) {
         sum += array[i];
     }
-    console.log(sum);
+    // console.log(sum);
     return sum
 }
 
 // Funziona la funzione?
-// sum_array(array_giorni);
+// sum_array(array_giorni); 
 // YES!!
 let my_days = sum_array(array_giorni);
 console.log("Mancano " + my_days + " giorni allo scadere del tempo!");
 
+
+// ok, sapendo che in un ora ci sono 3600 secondi
+    // creo array per le ore
+    let array_ore = [];
+
+for (let i = 0; i < 3600; i++) {
+
+    if (my_time_in_seconds > 3600) {
+        array_ore.push(parseInt(1));
+        my_time_in_seconds = my_time_in_seconds - 3600;
+        // console.log("yes");
+    }
+}
+// console.log(array_ore);
+// console.log(my_time_in_seconds);
+
+let my_hours = sum_array(array_ore);
+console.log("Mancano " + my_hours + " ore allo scadere del tempo!")
+
+
+// e quindi, sapendo che in un minuto ci sono 60 secondi
+    // creo array per i minuti
+    let array_minuti = [];
+
+for (let i = 0; i < 60; i++) {
+
+    if (my_time_in_seconds > 60) {
+        array_minuti.push(parseInt(1));
+        my_time_in_seconds = my_time_in_seconds - 60;
+        // console.log("yes");
+    }
+}
+// console.log(array_ore);
+// console.log(my_time_in_seconds);
+
+let my_minutes = sum_array(array_minuti);
+console.log("Mancano " + my_minutes + " minuti allo scadere del tempo!")
+
+
+// e quindi quindi..
+console.log(my_time_in_seconds);
+let my_seconds = my_time_in_seconds;
+        // YESSSS
+
+
+// in modo ordinato:
+console.log("Ti rimangono ancora " + my_days + " giorni, " + my_hours + " ore, " + my_minutes + " minuti e " + my_seconds + " secondi allo scadere del tempo!");
