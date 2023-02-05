@@ -1,15 +1,43 @@
-/* body { */
-    /* background-color: #3535EC;
-    font-family: 'Livvic', sans-serif;
-    line-height: 1; */
+body {
+    background-color: #145b63;
+    line-height: 1;
 
-    /* height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    color: #ffffff;
+    font-size: 1.3rem;
 }
 
-.stage {
+.box {
+    background-color: #35154a4d;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+
+    width: 500px;
+    height: 300px;
+    /* border: 1px solid black; */
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.number {
+ font-size: 4rem;
+ margin-top: 1rem;
+}
+
+/* .stage {
     max-width: 500px;
     margin: 0 auto;
 }

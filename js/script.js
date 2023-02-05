@@ -26,6 +26,20 @@ console.log("domani alle 9:30 saremo a " + domani.getTime() + " millisecondi");
 // domani - oggi ?
 let tempo_che_ci_serve = domani - oggi;
 console.log("il tempo da adesso fino alle 9:30 di domani è di " + tempo_che_ci_serve + " millisecondi");
+ 
+
+
+
+
+
+
+
+
+
+/*******************************************************************************/
+// OPS, mi sono dimenticata le timing functions!!
+/*******************************************************************************/
+// Versione tonta, senza timing functions (commento/scommento tutto insieme dalla riga sotto a questa):
 
 
 // ok, in millisecondi :D e in TEMPO UMANO NORMALE?
@@ -43,7 +57,7 @@ function transform_milliseconds(ms) {
 
 // trasformo millisecondi in secondi
 let my_time_in_seconds = transform_milliseconds(tempo_che_ci_serve);
-console.log("ti rimangono " + my_time_in_seconds + " secondi!");
+// console.log("ti rimangono " + my_time_in_seconds + " secondi!");
 
 
 
@@ -75,7 +89,7 @@ for (let i = 0; i < 86400; i++) {
     }
 }
 // console.log(array_giorni);
-console.log(my_time_in_seconds);
+// console.log(my_time_in_seconds);
 
 /**
  * funzione per sommare i numeri all'interno di un array
@@ -139,10 +153,21 @@ console.log("Mancano " + my_minutes + " minuti allo scadere del tempo!")
 
 
 // e quindi quindi..
-console.log(my_time_in_seconds);
+// console.log(my_time_in_seconds);
 let my_seconds = my_time_in_seconds;
         // YESSSS
 
 
 // in modo ordinato:
 console.log("Ti rimangono ancora " + my_days + " giorni, " + my_hours + " ore, " + my_minutes + " minuti e " + my_seconds + " secondi allo scadere del tempo!");
+
+// nell'html:
+document.querySelector(".days").innerHTML = my_days;
+
+document.querySelector(".hours").innerHTML = my_hours;
+
+document.querySelector(".minutes").innerHTML = my_minutes;
+
+document.querySelector(".seconds").innerHTML = my_seconds;
+
+// ok, funziona.. adesso provo con le timing functions (vedi su!)
