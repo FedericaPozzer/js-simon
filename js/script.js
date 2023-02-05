@@ -18,7 +18,7 @@
 
 // quando è oggi? quando sarà domani?
 let oggi = new Date();
-let domani = new Date("2023-02-04 09:30");
+let domani = new Date("2023-02-08 09:30");
 console.log("in questo momento siamo a " + oggi.getTime() + " millisecondi");
 console.log("domani alle 9:30 saremo a " + domani.getTime() + " millisecondi");
 
@@ -60,58 +60,46 @@ function transform_seconds(sec) {
     return parseInt(min);
 }
 
-// trasformo secondi in minuti
-let my_time_in_minutes = transform_seconds(my_time_in_seconds);
-console.log("ti rimangono " + my_time_in_minutes + " minuti!");
-
-// funziona ma non credo sia l'idea giusta :D
+// trasformo secondi in minuti --- funziona ma non credo sia l'idea giusta :D
+// let my_time_in_minutes = transform_seconds(my_time_in_seconds);
+// console.log("ti rimangono " + my_time_in_minutes + " minuti!");
 
 
 
+// ok, sapendo che in un giorno ci sono 86.400 secondi.. (3600 in un'ora)
+    // creo array per le ore
+    let array_giorni = [];
+    
+for (let i = 0; i < 86400; i++) {
 
+    if (my_time_in_seconds > 86400) {
+        array_giorni.push(parseInt(1));
+        my_time_in_seconds = my_time_in_seconds - 86400;
+        // console.log("yes");
+    }
+}
+// console.log(array_giorni);
+// console.log(my_time_in_seconds);
 
+/**
+ * funzione per sommare i numeri all'interno di un array
+ * 
+ * @param {*} array contenente numeri che voglio sommare tra loro
+ * @returns la somma dei numeri contenuti nell'array
+ * 
+ */
+function sum_array (array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    console.log(sum);
+    return sum
+}
 
+// Funziona la funzione?
+// sum_array(array_giorni);
+// YES!!
+let my_days = sum_array(array_giorni);
+console.log("Mancano " + my_days + " giorni allo scadere del tempo!");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*************** disastro da cancellare eventually ***************/
-/*************** not now perchè potrebbe servirmi qualcosa ***************/
-
-
-
-
-// schif:
-// // ok, in millisecondi :D e in TEMPO UMANO NORMALE?
-//     // in un minuto 60 secondi
-//     // in un'ora 60 minuti (3600 secondi)
-//     // in un giorno 24 ore (86400 secondi)
-// let secondi_in_un_minuto = 60;
-
-// // let calcolo_orario = setInterval(nome_a_caso, 1000); // THIS??????????
-
-// function nome_a_caso() {
-//     ++secondi_in_un_minuto;
-
-//     let secondi = parseInt(secondi_in_un_minuto % 60); // OK
-//     // console.log(secondi);
-//     let minuti = parseInt((secondi_in_un_minuto / 60) % 60); // OK
-//     // console.log(minuti); 
-//     let ore = parseInt((secondi_in_un_minuto / 60 / 60) % 24); // OK
-//     // console.log(ore); 
-//     let giorni = parseInt(secondi_in_un_minuto / 60 / 60 / 24); // OK
-//     // console.log(giorni);
-
-//     // return secondi, minuti, ore, giorni;
-// }
